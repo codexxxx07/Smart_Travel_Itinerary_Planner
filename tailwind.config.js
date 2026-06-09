@@ -12,7 +12,20 @@ module.exports = {
           pink: "#f4c2c2",
           yellow: "#f7e7a3",
           green: "#b5d3b5",
+          peach: "#ffdfd3",
+          cream: "#fef9f5",
         },
+        clay: {
+          bg: "#f0f4f8",
+          card: "#f7fafc",
+        },
+      },
+      boxShadow: {
+        'clay': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
+        'clay-sm': '4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff',
+        'clay-inset': 'inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff',
+        'clay-inset-sm': 'inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff',
+        'clay-lg': '12px 12px 24px #d1d9e6, -12px -12px 24px #ffffff',
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
