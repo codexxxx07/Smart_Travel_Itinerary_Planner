@@ -208,23 +208,28 @@ To use TripNova, you'll need to obtain API keys from the following services:
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Home+Page+Screenshot)
+![Home Page](/assets/HomePage.png)
 *Clean, modern landing page with intuitive navigation*
 
 ### Input Form
-![Input Form](https://via.placeholder.com/800x400/10B981/FFFFFF?text=Input+Form+Screenshot)
+![Input Form](/assets/InputForm1.png)
+![Input Form](/assets/InputForm2.png)
+![Input Form](/assets/InputForm3.png)
+![Input Form](/assets/InputForm4.png)
+
 *User-friendly form for destination, budget, and duration inputs*
 
 ### Itinerary Output
-![Itinerary Output](https://via.placeholder.com/800x400/F59E0B/FFFFFF?text=Itinerary+Output+Screenshot)
+![Itinerary Output](/assets/ItineraryOutput.png)
 *Generated itinerary with day-by-day breakdown and recommendations*
 
-### Map View
-![Map View](https://via.placeholder.com/800x400/EF4444/FFFFFF?text=Map+View+Screenshot)
-*Interactive map with location markers and route visualization*
+### Weather Info
+![Weather Info](/assets/WeatherInfo.png)
+
+*Real-time weather updates including temperature, conditions, and live weather icons for better travel planning*
 
 ### Dark Mode UI
-![Dark Mode](https://via.placeholder.com/800x400/1F2937/FFFFFF?text=Dark+Mode+Screenshot)
+![Dark Mode](/assets/DarkModeUI.png)
 *Seamless dark mode experience with optimized contrast*
 
 ---
