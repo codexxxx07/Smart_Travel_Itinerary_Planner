@@ -1,6 +1,42 @@
 (function () {
   "use strict";
 
+  // ─── Skeleton Loader Logic ─────────────────────────────────────────────────────
+  const skeletonLoader = document.getElementById("skeleton-loader");
+  const mainContent    = document.getElementById("main-content");
+  const loaderStartTime = Date.now();
+  const MIN_LOAD_TIME = 1000;
+
+  function hideSkeletonAndShowContent() {
+    const elapsed = Date.now() - loaderStartTime;
+    const remaining = Math.max(0, MIN_LOAD_TIME - elapsed);
+
+    setTimeout(() => {
+      // Fade out skeleton
+      skeletonLoader.style.transition = "opacity 0.5s ease-out";
+      skeletonLoader.style.opacity = "0";
+      
+      // Show main content
+      mainContent.classList.remove("hidden");
+      setTimeout(() => {
+        mainContent.style.transition = "opacity 0.5s ease-out";
+        mainContent.style.opacity = "1";
+      }, 50);
+      
+      // Hide skeleton completely after animation
+      setTimeout(() => {
+        skeletonLoader.style.display = "none";
+      }, 500);
+    }, remaining);
+  }
+
+  // Hide skeleton when page is fully loaded
+  if (document.readyState === "complete") {
+    hideSkeletonAndShowContent();
+  } else {
+    window.addEventListener("load", hideSkeletonAndShowContent);
+  }
+
   // ─── DOM refs ────────────────────────────────────────────────────────────────
   const form            = document.getElementById("travelForm");
   const destinationInput = document.getElementById("destination");

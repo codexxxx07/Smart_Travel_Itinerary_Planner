@@ -283,3 +283,27 @@ button:active {
   animation: spin 1s linear infinite;
   will-change: transform;
 }
+
+/* Shimmer animation for skeleton loader */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Skeleton loader transition */
+#skeleton-loader {
+  transition: opacity 0.5s ease-out;
+}
+
+#main-content {
+  transition: opacity 0.5s ease-out;
+}
