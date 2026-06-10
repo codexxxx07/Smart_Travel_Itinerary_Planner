@@ -277,7 +277,7 @@ To use TripNova, you'll need to obtain API keys from the following services:
 **Krish**
 
 - GitHub: [@codexxxx07](https://github.com/codexxxx07)
-- LinkedIn: [@krishanjit-chakraborty-258a5237a](www.linkedin.com/in/krishanjit-chakraborty-258a5237a)
+- LinkedIn: [@krishanjit-chakraborty-258a5237a?utm_source=share_via&utm_content=profile&utm_medium=member_android](https://www.linkedin.com/in/krishanjit-chakraborty-258a5237a?utm_source=share_via&utm_content=profile&utm_medium=member_android)
 - Instagram: [@_k_r_i_s_h_x_](https://www.instagram.com/_k_r_i_s_h_x_)
 - Discord: [@krish014669](https://discord.com/channels/krish014669)
 
