@@ -2,6 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /*
+   * Fix 1: Tailwind Preflight sets -webkit-appearance without the unprefixed
+   * appearance property on form elements. Override here to pair both together,
+   * silencing vendor-prefix warnings without changing any visual behaviour.
+   */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /*
+   * Fix 1b: [type='search'] gets -webkit-appearance:textfield from Preflight
+   * with no standard counterpart. Add appearance:auto (same semantic intent)
+   * so the declaration pair is complete.
+   * Fix 1c: input[type='submit'] gets -webkit-appearance:button from Preflight.
+   * Add appearance:button to pair it.
+   */
+  [type='search'] {
+    -webkit-appearance: textfield;
+    appearance: auto;
+  }
+
+  input:where([type='submit']),
+  input:where([type='reset']),
+  input:where([type='button']) {
+    -webkit-appearance: button;
+    appearance: button;
+  }
+
+  /*
+   * Fix 2: Tailwind Preflight applies both display:block AND vertical-align:middle
+   * to img/svg/video/etc. vertical-align has no effect on block-level elements,
+   * making it an invalid/redundant declaration that triggers CSS warnings.
+   * Override with vertical-align:unset to remove the conflict.
+   */
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: unset;
+  }
+}
+
 /* Google Fonts loaded via HTML <link> for non-render-blocking; font-display:swap handled by Google */
 body {
   font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
