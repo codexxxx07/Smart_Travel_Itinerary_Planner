@@ -6,7 +6,7 @@
   <title>AI Travel Planner</title>
   <link rel="stylesheet" href="dist/output.css" />
 </head>
-<body class="bg-[#faf8f6] dark:bg-slate-900 text-gray-800 dark:text-gray-100 min-h-screen relative">
+<body class="bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0] dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 text-gray-800 dark:text-gray-100 min-h-screen relative">
 
   <!-- Background blobs -->
   <div class="blob blob-1 fixed"></div>
@@ -14,57 +14,57 @@
   <div class="blob blob-3 fixed"></div>
 
   <!-- Navbar -->
-  <nav class="sticky top-0 z-40 nav-blur bg-white/70 dark:bg-slate-900/70 border-b border-gray-100 dark:border-slate-800">
+  <nav class="sticky top-0 z-40 nav-blur">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <span class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 dark:from-cyan-400 dark:to-purple-400 bg-clip-text text-transparent select-none">
+      <span class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent select-none">
         AI Travel Planner 🌍
       </span>
-      <button id="themeToggle" class="p-2.5 rounded-2xl bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 hover:scale-110 transition-all duration-200 border border-gray-200 dark:border-slate-700 shadow-sm" aria-label="Toggle theme">
-        <svg id="sunIcon" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.34l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        <svg id="moonIcon" class="w-5 h-5 text-indigo-400 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75 9.75 9.75 0 018.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25 9.75 9.75 0 0012.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      <button id="themeToggle" class="p-3 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 hover:scale-110 transition-all duration-300 shadow-lg shadow-gray-300/50 dark:shadow-black/20" aria-label="Toggle theme">
+        <svg id="sunIcon" class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.34l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        <svg id="moonIcon" class="w-5 h-5 text-indigo-400 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75 9.75 9.75 0 018.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25 9.75 9.75 0 0012.75 21a9.753 9.753 0 009.002-5.998z"></path></svg>
       </button>
     </div>
   </nav>
 
   <!-- Main -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
     <!-- Hero -->
     <header class="text-center mb-12 animate-fade-in-up">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-400 dark:from-cyan-300 dark:via-purple-400 dark:to-teal-300 bg-clip-text text-transparent leading-tight">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-300 dark:via-purple-400 dark:to-pink-300 bg-clip-text text-transparent leading-tight">
         Your Perfect Trip <br class="sm:hidden" />Starts Here
       </h1>
-      <p class="mt-4 text-gray-500 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto">Plan your trips smarter with AI — just tell us where you're going</p>
+      <p class="mt-4 text-gray-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto">Plan your trips smarter with AI — just tell us where you're going</p>
     </header>
 
     <!-- Form Card -->
     <section class="relative animate-fade-in-up" style="animation-delay:0.1s">
-      <div class="absolute -inset-1 bg-gradient-to-r from-pastel-blue/40 via-pastel-purple/30 to-pastel-teal/40 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-teal-500/10 rounded-3xl blur-xl"></div>
-      <div class="relative bg-white dark:glass-dark dark:bg-slate-800/50 rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-black/20 border border-gray-100 dark:border-slate-700/50 p-6 sm:p-8 card-lift">
-        <form id="travelForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+      <div class="absolute -inset-2 bg-gradient-to-r from-blue-200/40 via-purple-200/30 to-pink-200/40 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-2xl"></div>
+      <div class="relative bg-gradient-to-br from-white to-gray-50 dark:glass-dark dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 card-lift">
+        <form id="travelForm" class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7">
           <div class="sm:col-span-2">
-            <label for="destination" class="block text-sm font-semibold text-gray-600 dark:text-slate-300 mb-1.5">Where to?</label>
+            <label for="destination" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Where to?</label>
             <input type="text" id="destination" placeholder="e.g. Paris, Tokyo, Bali..." required
-              class="w-full px-4 py-3.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50/50 dark:bg-slate-700/30 focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-cyan-400/50 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400 dark:placeholder:text-slate-500" />
+              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-slate-500" />
           </div>
           <div>
-            <label for="days" class="block text-sm font-semibold text-gray-600 dark:text-slate-300 mb-1.5">How many days?</label>
+            <label for="days" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">How many days?</label>
             <input type="number" id="days" min="1" max="30" value="3" required
-              class="w-full px-4 py-3.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50/50 dark:bg-slate-700/30 focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-cyan-400/50 focus:border-transparent outline-none transition-all duration-200" />
+              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white" />
           </div>
           <div>
-            <label for="budget" class="block text-sm font-semibold text-gray-600 dark:text-slate-300 mb-1.5">Budget</label>
+            <label for="budget" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Budget</label>
             <select id="budget"
-              class="w-full px-4 py-3.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50/50 dark:bg-slate-700/30 focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-cyan-400/50 focus:border-transparent outline-none transition-all duration-200 appearance-none cursor-pointer">
+              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white cursor-pointer">
               <option value="Budget">💰 Budget</option>
               <option value="Mid-range" selected>💵 Mid-range</option>
               <option value="Luxury">✨ Luxury</option>
             </select>
           </div>
           <div>
-            <label for="vibe" class="block text-sm font-semibold text-gray-600 dark:text-slate-300 mb-1.5">Travel Vibe</label>
+            <label for="vibe" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Travel Vibe</label>
             <select id="vibe"
-              class="w-full px-4 py-3.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50/50 dark:bg-slate-700/30 focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-cyan-400/50 focus:border-transparent outline-none transition-all duration-200 appearance-none cursor-pointer">
+              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white cursor-pointer">
               <option value="Adventure">🏔️ Adventure</option>
               <option value="Relaxation">🏖️ Relaxation</option>
               <option value="Cultural">🏛️ Cultural</option>
@@ -72,13 +72,13 @@
               <option value="Party">🎉 Party</option>
             </select>
           </div>
-          <div class="sm:col-span-2 flex flex-col sm:flex-row gap-3 mt-1">
+          <div class="sm:col-span-2 flex flex-col sm:flex-row gap-4 mt-2">
             <button type="submit" id="generateBtn"
-              class="flex-1 px-6 py-3.5 bg-gradient-to-r from-blue-500 via-blue-600 to-purple-600 dark:from-cyan-500 dark:to-purple-500 text-white font-bold text-base rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-blue-500/25 dark:shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+              class="flex-1 px-7 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-500 dark:via-purple-500 dark:to-pink-500 text-white font-bold text-base rounded-2xl shadow-xl shadow-blue-500/30 dark:shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0">
               Generate Plan 🚀
             </button>
             <button type="reset" id="resetBtn"
-              class="px-6 py-3.5 bg-gray-100 dark:bg-slate-700/50 text-gray-600 dark:text-slate-300 font-semibold text-base rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-gray-200 dark:border-slate-600 hover:bg-gray-200 dark:hover:bg-slate-700">
+              class="px-7 py-4 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 text-gray-700 dark:text-slate-300 font-semibold text-base rounded-2xl hover:from-gray-200 hover:to-gray-300 dark:hover:from-slate-700 dark:hover:to-slate-600">
               Reset
             </button>
           </div>
@@ -87,17 +87,17 @@
     </section>
 
     <!-- Loading -->
-    <div id="loading" class="hidden flex flex-col items-center justify-center py-20 animate-fade-in">
-      <div class="relative w-16 h-16 mb-5">
-        <div class="absolute inset-0 rounded-full border-4 border-blue-200/50 dark:border-slate-600"></div>
+    <div id="loading" class="hidden flex flex-col items-center justify-center py-24 animate-fade-in">
+      <div class="relative w-20 h-20 mb-6">
+        <div class="absolute inset-0 rounded-full border-4 border-blue-200/60 dark:border-slate-600"></div>
         <div class="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-500 dark:border-t-cyan-400 animate-spin"></div>
       </div>
-      <p class="text-gray-500 dark:text-slate-400 text-lg font-semibold">AI is planning your trip...</p>
-      <p class="text-gray-400 dark:text-slate-500 text-sm mt-1">Crafting the perfect itinerary ✨</p>
+      <p class="text-gray-600 dark:text-slate-400 text-xl font-semibold">AI is planning your trip...</p>
+      <p class="text-gray-500 dark:text-slate-500 text-sm mt-2">Crafting the perfect itinerary ✨</p>
     </div>
 
     <!-- Error -->
-    <div id="error" class="hidden bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 text-red-600 dark:text-red-300 rounded-2xl p-4 mb-6 animate-fade-in text-center"></div>
+    <div id="error" class="hidden bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/10 border border-red-200 dark:border-red-800/40 text-red-600 dark:text-red-300 rounded-3xl p-6 mb-8 animate-fade-in text-center"></div>
 
     <!-- Itinerary Results -->
     <section id="results" class="hidden animate-fade-in-up"></section>
@@ -105,7 +105,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-8 text-gray-400 dark:text-slate-500 text-sm border-t border-gray-100 dark:border-slate-800">
+  <footer class="text-center py-10 text-gray-500 dark:text-slate-500 text-sm border-t border-gray-200 dark:border-slate-800">
     Made with ❤️ &middot; AI Travel Planner
   </footer>
 

@@ -42,10 +42,10 @@
   };
 
   const timePillColors = {
-    Morning: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
-    Afternoon: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
-    Evening: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300",
-    Night: "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300",
+    Morning: "bg-gradient-to-br from-amber-100 to-amber-200 text-amber-700 dark:from-amber-900/40 dark:to-amber-800/30 dark:text-amber-300",
+    Afternoon: "bg-gradient-to-br from-orange-100 to-orange-200 text-orange-700 dark:from-orange-900/40 dark:to-orange-800/30 dark:text-orange-300",
+    Evening: "bg-gradient-to-br from-indigo-100 to-indigo-200 text-indigo-700 dark:from-indigo-900/40 dark:to-indigo-800/30 dark:text-indigo-300",
+    Night: "bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 dark:from-slate-700 dark:to-slate-600 dark:text-slate-300",
   };
 
   // Theme
@@ -211,21 +211,21 @@
     // Summary banner
     const summary = document.createElement("div");
     summary.className =
-      "bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 border border-gray-100 dark:border-slate-700/50 animate-fade-in-up shadow-lg shadow-gray-100/50 dark:shadow-black/10 card-lift";
+      "bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 animate-fade-in-up card-lift";
     summary.innerHTML = `
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${vibeColors.bg} flex items-center justify-center text-2xl shadow-inner">🌍</div>
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br ${vibeColors.bg} flex items-center justify-center text-3xl shadow-inner">🌍</div>
           <div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800 dark:text-white">${data.destination}</h2>
-            <p class="text-gray-500 dark:text-slate-400 mt-0.5 text-sm sm:text-base">
+            <p class="text-gray-600 dark:text-slate-400 mt-1 text-sm sm:text-base">
               ${data.total_days} day${data.total_days > 1 ? "s" : ""} &middot; ${data.budget} &middot; ${data.vibe}
             </p>
           </div>
         </div>
-        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 bg-gray-50 dark:bg-slate-700/40 px-4 py-2.5 rounded-xl border border-gray-100 dark:border-slate-700 w-fit">
+        <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-slate-400 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 px-5 py-3 rounded-2xl w-fit">
           <span>🗓️</span>
-          <span class="font-medium">${data.itinerary.length} day${data.itinerary.length > 1 ? "s" : ""} planned</span>
+          <span class="font-semibold">${data.itinerary.length} day${data.itinerary.length > 1 ? "s" : ""} planned</span>
         </div>
       </div>
     `;
@@ -233,7 +233,7 @@
 
     // Scrollable wrapper
     const scrollWrapper = document.createElement("div");
-    scrollWrapper.className = "itinerary-scroll space-y-6 pr-1";
+    scrollWrapper.className = "itinerary-scroll space-y-7 pr-2";
     results.appendChild(scrollWrapper);
 
     data.itinerary.forEach((day, idx) => {
@@ -241,39 +241,39 @@
 
       const card = document.createElement("div");
       card.className =
-        `bg-white dark:glass-dark dark:bg-slate-800/40 rounded-2xl sm:rounded-3xl shadow-lg dark:shadow-black/10 border border-gray-100 dark:border-slate-700/50 overflow-hidden opacity-0 translate-y-4 card-lift ${colors.border}`;
-      card.style.animation = `fadeInUp 0.5s ease-out ${idx * 0.15}s forwards`;
+        `bg-gradient-to-br from-white to-gray-50 dark:glass-dark dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl overflow-hidden opacity-0 translate-y-5 card-lift ${colors.border}`;
+      card.style.animation = `fadeInUp 0.7s ease-out ${idx * 0.18}s forwards`;
 
       card.innerHTML = `
-        <div class="p-5 sm:p-6">
-          <div class="flex items-center gap-4 mb-5">
+        <div class="p-6 sm:p-7">
+          <div class="flex items-center gap-5 mb-6">
             <div class="relative timeline-dot">
-              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br ${colors.bg} flex items-center justify-center font-extrabold text-lg ${colors.text} shadow-sm">${day.day}</div>
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br ${colors.bg} flex items-center justify-center font-extrabold text-xl ${colors.text} shadow-inner">${day.day}</div>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="font-bold text-xl text-gray-800 dark:text-white">Day ${day.day}</h3>
-              <p class="text-sm ${colors.text} font-medium truncate">${day.theme}</p>
+              <h3 class="font-bold text-xl sm:text-2xl text-gray-800 dark:text-white">Day ${day.day}</h3>
+              <p class="text-sm ${colors.text} font-semibold truncate">${day.theme}</p>
             </div>
           </div>
-          <div class="space-y-4">
+          <div class="space-y-5">
             ${day.activities
               .map(
                 (act, actIdx) => `
-              <div class="relative pl-14">
-                ${actIdx < day.activities.length - 1 ? '<div class="absolute left-[22px] top-10 bottom-0 w-0.5 bg-gradient-to-b from-gray-200 to-gray-100 dark:from-slate-600 dark:to-slate-700"></div>' : ""}
-                <div class="absolute left-[14px] top-1.5 w-[18px] h-[18px] rounded-full ${colors.dot} border-2 border-white dark:border-slate-800 shadow-sm"></div>
-                <div class="bg-gray-50 dark:bg-slate-700/20 rounded-xl sm:rounded-2xl p-4 hover:bg-white dark:hover:bg-slate-700/40 transition-all duration-200 border border-gray-100 dark:border-slate-700/30">
-                  <div class="flex items-center gap-2 mb-2 flex-wrap">
-                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${timePillColors[act.time] || "bg-gray-100 text-gray-600"}">
+              <div class="relative pl-16">
+                ${actIdx < day.activities.length - 1 ? '<div class="absolute left-[26px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-gray-300 to-gray-200 dark:from-slate-600 dark:to-slate-700"></div>' : ""}
+                <div class="absolute left-[16px] top-2 w-[20px] h-[20px] rounded-full ${colors.dot} border-3 border-white dark:border-slate-800 shadow-md"></div>
+                <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-5 hover:from-white hover:to-gray-100 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-300 shadow-inner">
+                  <div class="flex items-center gap-3 mb-3 flex-wrap">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold ${timePillColors[act.time] || "bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 dark:from-slate-700 dark:to-slate-600 dark:text-slate-300"}">
                       ${timeIcons[act.time] || "📍"} ${act.time}
                     </span>
-                    <span class="text-xs text-gray-400 dark:text-slate-500">${categoryIcons[act.category] || categoryIcons.default} ${act.category}</span>
+                    <span class="text-xs text-gray-500 dark:text-slate-500 font-medium">${categoryIcons[act.category] || categoryIcons.default} ${act.category}</span>
                   </div>
-                  <p class="font-bold text-gray-800 dark:text-white text-sm sm:text-base">${act.title}</p>
-                  <p class="text-sm text-gray-500 dark:text-slate-400 mt-1 leading-relaxed">${act.description}</p>
-                  <div class="flex items-center gap-4 mt-3 text-xs text-gray-400 dark:text-slate-500">
-                    <span class="inline-flex items-center gap-1">📍 ${act.location}</span>
-                    <span class="inline-flex items-center gap-1">💰 ${act.cost}</span>
+                  <p class="font-bold text-gray-800 dark:text-white text-base sm:text-lg">${act.title}</p>
+                  <p class="text-sm text-gray-600 dark:text-slate-400 mt-2 leading-relaxed">${act.description}</p>
+                  <div class="flex items-center gap-5 mt-4 text-sm text-gray-500 dark:text-slate-500 font-medium">
+                    <span class="inline-flex items-center gap-2">📍 ${act.location}</span>
+                    <span class="inline-flex items-center gap-2">💰 ${act.cost}</span>
                   </div>
                 </div>
               </div>
