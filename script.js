@@ -208,85 +208,69 @@
 
     const vibeColors = vibeDayColors[data.vibe] || vibeDayColors.Cultural;
 
-    // Summary banner
-    const summary = document.createElement("div");
-    summary.className =
-      "bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 animate-fade-in-up card-lift";
-    summary.innerHTML = `
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-        <div class="flex items-center gap-4">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br ${vibeColors.bg} flex items-center justify-center text-3xl shadow-inner">🌍</div>
-          <div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800 dark:text-white">${data.destination}</h2>
-            <p class="text-gray-600 dark:text-slate-400 mt-1 text-sm sm:text-base">
-              ${data.total_days} day${data.total_days > 1 ? "s" : ""} &middot; ${data.budget} &middot; ${data.vibe}
-            </p>
+    // Build summary
+    let html = `
+      <div class="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 mb-8 card-lift">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br ${vibeColors.bg} flex items-center justify-center text-3xl">🌍</div>
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800 dark:text-white">${data.destination}</h2>
+              <p class="text-gray-600 dark:text-slate-400 mt-1 text-sm sm:text-base">
+                ${data.total_days} day${data.total_days > 1 ? "s" : ""} &middot; ${data.budget} &middot; ${data.vibe}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-slate-400 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 px-5 py-3 rounded-xl w-fit">
+            <span>🗓️</span>
+            <span class="font-semibold">${data.itinerary.length} day${data.itinerary.length > 1 ? "s" : ""} planned</span>
           </div>
         </div>
-        <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-slate-400 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 px-5 py-3 rounded-2xl w-fit">
-          <span>🗓️</span>
-          <span class="font-semibold">${data.itinerary.length} day${data.itinerary.length > 1 ? "s" : ""} planned</span>
-        </div>
       </div>
+      <div class="itinerary-scroll space-y-6 pr-2">
     `;
-    results.appendChild(summary);
-
-    // Scrollable wrapper
-    const scrollWrapper = document.createElement("div");
-    scrollWrapper.className = "itinerary-scroll space-y-7 pr-2";
-    results.appendChild(scrollWrapper);
 
     data.itinerary.forEach((day, idx) => {
       const colors = vibeDayColors[data.vibe] || vibeDayColors.Cultural;
-
-      const card = document.createElement("div");
-      card.className =
-        `bg-gradient-to-br from-white to-gray-50 dark:glass-dark dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl overflow-hidden opacity-0 translate-y-5 card-lift ${colors.border}`;
-      card.style.animation = `fadeInUp 0.7s ease-out ${idx * 0.18}s forwards`;
-
-      card.innerHTML = `
-        <div class="p-6 sm:p-7">
-          <div class="flex items-center gap-5 mb-6">
-            <div class="relative timeline-dot">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br ${colors.bg} flex items-center justify-center font-extrabold text-xl ${colors.text} shadow-inner">${day.day}</div>
+      html += `
+        <div class="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl overflow-hidden card-lift ${colors.border}" style="animation: fadeInUp 0.3s ease-out ${idx * 0.08}s both;">
+          <div class="p-6 sm:p-7">
+            <div class="flex items-center gap-5 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${colors.bg} flex items-center justify-center font-extrabold text-xl ${colors.text}">${day.day}</div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-xl sm:text-2xl text-gray-800 dark:text-white">Day ${day.day}</h3>
+                <p class="text-sm ${colors.text} font-semibold truncate">${day.theme}</p>
+              </div>
             </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="font-bold text-xl sm:text-2xl text-gray-800 dark:text-white">Day ${day.day}</h3>
-              <p class="text-sm ${colors.text} font-semibold truncate">${day.theme}</p>
-            </div>
-          </div>
-          <div class="space-y-5">
-            ${day.activities
-              .map(
-                (act, actIdx) => `
-              <div class="relative pl-16">
-                ${actIdx < day.activities.length - 1 ? '<div class="absolute left-[26px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-gray-300 to-gray-200 dark:from-slate-600 dark:to-slate-700"></div>' : ""}
-                <div class="absolute left-[16px] top-2 w-[20px] h-[20px] rounded-full ${colors.dot} border-3 border-white dark:border-slate-800 shadow-md"></div>
-                <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-5 hover:from-white hover:to-gray-100 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-300 shadow-inner">
-                  <div class="flex items-center gap-3 mb-3 flex-wrap">
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold ${timePillColors[act.time] || "bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 dark:from-slate-700 dark:to-slate-600 dark:text-slate-300"}">
-                      ${timeIcons[act.time] || "📍"} ${act.time}
-                    </span>
-                    <span class="text-xs text-gray-500 dark:text-slate-500 font-medium">${categoryIcons[act.category] || categoryIcons.default} ${act.category}</span>
-                  </div>
-                  <p class="font-bold text-gray-800 dark:text-white text-base sm:text-lg">${act.title}</p>
-                  <p class="text-sm text-gray-600 dark:text-slate-400 mt-2 leading-relaxed">${act.description}</p>
-                  <div class="flex items-center gap-5 mt-4 text-sm text-gray-500 dark:text-slate-500 font-medium">
-                    <span class="inline-flex items-center gap-2">📍 ${act.location}</span>
-                    <span class="inline-flex items-center gap-2">💰 ${act.cost}</span>
+            <div class="space-y-5">
+              ${day.activities.map((act, actIdx) => `
+                <div class="relative pl-16">
+                  ${actIdx < day.activities.length - 1 ? `<div class="absolute left-[26px] top-12 bottom-0 w-0.5 bg-gray-200 dark:bg-slate-700"></div>` : ''}
+                  <div class="absolute left-[16px] top-2 w-[20px] h-[20px] rounded-full ${colors.dot} border-2 border-white dark:border-slate-800"></div>
+                  <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 rounded-xl p-5">
+                    <div class="flex items-center gap-3 mb-3 flex-wrap">
+                      <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold ${timePillColors[act.time] || 'bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 dark:from-slate-700 dark:to-slate-600 dark:text-slate-300'}">
+                        ${timeIcons[act.time] || '📍'} ${act.time}
+                      </span>
+                      <span class="text-xs text-gray-500 dark:text-slate-500 font-medium">${categoryIcons[act.category] || categoryIcons.default} ${act.category}</span>
+                    </div>
+                    <p class="font-bold text-gray-800 dark:text-white text-base sm:text-lg">${act.title}</p>
+                    <p class="text-sm text-gray-600 dark:text-slate-400 mt-2 leading-relaxed">${act.description}</p>
+                    <div class="flex items-center gap-5 mt-4 text-sm text-gray-500 dark:text-slate-500 font-medium">
+                      <span class="inline-flex items-center gap-2">📍 ${act.location}</span>
+                      <span class="inline-flex items-center gap-2">💰 ${act.cost}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            `
-              )
-              .join("")}
+              `).join('')}
+            </div>
           </div>
         </div>
       `;
-
-      scrollWrapper.appendChild(card);
     });
 
+    html += `</div>`;
+    results.innerHTML = html;
     results.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -313,7 +297,7 @@
     loading.classList.remove("hidden");
     generateBtn.disabled = true;
 
-    await new Promise((r) => setTimeout(r, 1800 + Math.random() * 1200));
+    await new Promise((r) => setTimeout(r, 1500));
 
     try {
       const data = generateMockItinerary(destination, days, budget, vibe);

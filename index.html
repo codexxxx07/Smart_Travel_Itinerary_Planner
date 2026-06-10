@@ -19,8 +19,8 @@
       <span class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent select-none">
         AI Travel Planner 🌍
       </span>
-      <button id="themeToggle" class="p-3 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 hover:scale-110 transition-all duration-300 shadow-lg shadow-gray-300/50 dark:shadow-black/20" aria-label="Toggle theme">
-        <svg id="sunIcon" class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.34l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+      <button id="themeToggle" class="p-3 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 transition-transform duration-200 ease-out" aria-label="Toggle theme">
+        <svg id="sunIcon" class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.34l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         <svg id="moonIcon" class="w-5 h-5 text-indigo-400 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75 9.75 9.75 0 018.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25 9.75 9.75 0 0012.75 21a9.753 9.753 0 009.002-5.998z"></path></svg>
       </button>
     </div>
@@ -30,7 +30,7 @@
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
     <!-- Hero -->
-    <header class="text-center mb-12 animate-fade-in-up">
+    <header class="text-center mb-12">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-300 dark:via-purple-400 dark:to-pink-300 bg-clip-text text-transparent leading-tight">
         Your Perfect Trip <br class="sm:hidden" />Starts Here
       </h1>
@@ -38,24 +38,23 @@
     </header>
 
     <!-- Form Card -->
-    <section class="relative animate-fade-in-up" style="animation-delay:0.1s">
-      <div class="absolute -inset-2 bg-gradient-to-r from-blue-200/40 via-purple-200/30 to-pink-200/40 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-3xl blur-2xl"></div>
-      <div class="relative bg-gradient-to-br from-white to-gray-50 dark:glass-dark dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 card-lift">
-        <form id="travelForm" class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7">
+    <section class="relative">
+      <div class="relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 card-lift">
+        <form id="travelForm" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="sm:col-span-2">
             <label for="destination" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Where to?</label>
             <input type="text" id="destination" placeholder="e.g. Paris, Tokyo, Bali..." required
-              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-slate-500" />
+              class="w-full px-5 py-4 rounded-xl text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-slate-500" />
           </div>
           <div>
             <label for="days" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">How many days?</label>
             <input type="number" id="days" min="1" max="30" value="3" required
-              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white" />
+              class="w-full px-5 py-4 rounded-xl text-gray-800 dark:text-white" />
           </div>
           <div>
             <label for="budget" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Budget</label>
             <select id="budget"
-              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white cursor-pointer">
+              class="w-full px-5 py-4 rounded-xl text-gray-800 dark:text-white cursor-pointer">
               <option value="Budget">💰 Budget</option>
               <option value="Mid-range" selected>💵 Mid-range</option>
               <option value="Luxury">✨ Luxury</option>
@@ -64,7 +63,7 @@
           <div>
             <label for="vibe" class="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">Travel Vibe</label>
             <select id="vibe"
-              class="w-full px-5 py-4 rounded-2xl text-gray-800 dark:text-white cursor-pointer">
+              class="w-full px-5 py-4 rounded-xl text-gray-800 dark:text-white cursor-pointer">
               <option value="Adventure">🏔️ Adventure</option>
               <option value="Relaxation">🏖️ Relaxation</option>
               <option value="Cultural">🏛️ Cultural</option>
@@ -74,11 +73,11 @@
           </div>
           <div class="sm:col-span-2 flex flex-col sm:flex-row gap-4 mt-2">
             <button type="submit" id="generateBtn"
-              class="flex-1 px-7 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-500 dark:via-purple-500 dark:to-pink-500 text-white font-bold text-base rounded-2xl shadow-xl shadow-blue-500/30 dark:shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0">
+              class="flex-1 px-7 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-cyan-500 dark:via-purple-500 dark:to-pink-500 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-500/20 dark:shadow-cyan-500/15 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none">
               Generate Plan 🚀
             </button>
             <button type="reset" id="resetBtn"
-              class="px-7 py-4 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 text-gray-700 dark:text-slate-300 font-semibold text-base rounded-2xl hover:from-gray-200 hover:to-gray-300 dark:hover:from-slate-700 dark:hover:to-slate-600">
+              class="px-7 py-4 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-700 text-gray-700 dark:text-slate-300 font-semibold text-base rounded-xl">
               Reset
             </button>
           </div>
@@ -87,8 +86,8 @@
     </section>
 
     <!-- Loading -->
-    <div id="loading" class="hidden flex flex-col items-center justify-center py-24 animate-fade-in">
-      <div class="relative w-20 h-20 mb-6">
+    <div id="loading" class="hidden flex flex-col items-center justify-center py-24">
+      <div class="relative w-16 h-16 mb-6">
         <div class="absolute inset-0 rounded-full border-4 border-blue-200/60 dark:border-slate-600"></div>
         <div class="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-500 dark:border-t-cyan-400 animate-spin"></div>
       </div>
@@ -97,10 +96,10 @@
     </div>
 
     <!-- Error -->
-    <div id="error" class="hidden bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/10 border border-red-200 dark:border-red-800/40 text-red-600 dark:text-red-300 rounded-3xl p-6 mb-8 animate-fade-in text-center"></div>
+    <div id="error" class="hidden bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/10 border border-red-200 dark:border-red-800/40 text-red-600 dark:text-red-300 rounded-2xl p-6 mb-8 text-center"></div>
 
     <!-- Itinerary Results -->
-    <section id="results" class="hidden animate-fade-in-up"></section>
+    <section id="results" class="hidden"></section>
 
   </main>
 
